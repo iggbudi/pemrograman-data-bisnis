@@ -1,0 +1,11 @@
+# file data & hasil generate
+toko.db
+laporan_penjualan.xlsx
+render_rps.pdf
+__pycache__/
+
+# dokumen RPS memuat tanda tangan & nama pribadi - tidak diunggah ke publik
+RPS Pemrograman Komputer Bisnis 2026 - Prodi AB.docx
+Salinan RPS Pemrograman Komputer Bisnis 2024 - Prodi AB.pdf
+assets/
+build_rps.py
