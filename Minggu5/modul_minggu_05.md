@@ -8,8 +8,11 @@
 | **Alokasi waktu** | 2 pertemuan × 90 menit |
 | **Studi kasus** | Catatan Penjualan Kedai Rasa (data simulasi) |
 | **Berkas hasil akhir** | `app.py` (dijalankan dengan `streamlit run app.py`) |
+| **Video tutorial** | [Tonton di YouTube](https://www.youtube.com/watch?v=jbA16hz8xzw) (±9 menit, dengan subtitle) |
 
 ---
+
+> 🎬 **Lebih mudah belajar sambil menonton?** Ikuti video tutorial langkah demi langkah di sini: https://www.youtube.com/watch?v=jbA16hz8xzw. Gunakan modul ini sebagai pegangan untuk kode dan latihannya.
 
 ## Daftar Isi
 
