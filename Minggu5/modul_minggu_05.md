@@ -47,26 +47,14 @@ Karena itu data harus **diperiksa sebelum disimpan**.
 
 ### 1.2 Yang akan kita buat
 
-Aplikasi web sederhana bernama **Catatan Penjualan Kedai Rasa** dengan satu form:
+Aplikasi web sederhana bernama **Catatan Penjualan Kedai Rasa** dengan satu form. Beginilah tampilannya saat pertama kali dibuka di browser:
 
-```
-┌─────────────────────────────────────────────┐
-│  Catatan Penjualan Kedai Rasa               │
-│                                             │
-│  Tambah transaksi                           │
-│  Tanggal transaksi      [ 2026-10-01 ]      │
-│  Pilih produk           [ Kopi Susu — Minuman ▾ ] │
-│  Harga jual per unit    [ 15000 ]           │
-│  Jumlah unit            [ 1 ]               │
-│                                             │
-│  [ Simpan transaksi ]                       │
-│                                             │
-│  ✅ Transaksi nomor 1 tersimpan. Total: Rp15.000. │
-└─────────────────────────────────────────────┘
-```
+![Tampilan awal aplikasi Catatan Penjualan Kedai Rasa](images/01_tampilan_awal.png)
 
-- Data yang **benar** → tersimpan dan muncul pesan hijau.
-- Data yang **salah** → ditolak dengan pesan merah yang jelas.
+*Gambar 1. Tampilan awal aplikasi: form dengan tanggal, pilihan produk, harga, jumlah, dan tombol simpan.*
+
+- Data yang **benar** → tersimpan dan muncul pesan hijau (Gambar 3).
+- Data yang **salah** → ditolak dengan pesan merah yang jelas (Gambar 4-6).
 
 ### 1.3 Tujuan pembelajaran
 
@@ -559,7 +547,13 @@ streamlit run app.py
 
 Browser terbuka otomatis. Bila tidak, buka alamat yang tertera di terminal (biasanya `http://localhost:8501`).
 
-Uji 4 skenario ini langsung di form:
+Setelah aplikasi terbuka, klik kotak **Pilih produk**. Daftar katalog dari tabel `products` akan muncul. Kasir hanya bisa memilih produk yang terdaftar:
+
+![Pilihan produk dari katalog](images/02_pilihan_produk.png)
+
+*Gambar 2. Dropdown produk berisi katalog dari tabel `products`.*
+
+Uji 4 skenario ini langsung di form. Gambar di bawah tabel menunjukkan **hasil yang harus kamu lihat**:
 
 | No | Isi form | Hasil yang diharapkan |
 |---|---|---|
@@ -567,6 +561,30 @@ Uji 4 skenario ini langsung di form:
 | 2 | Harga dikosongkan | Pesan merah: *Harga dan jumlah wajib diisi.* |
 | 3 | Jumlah `dua` | Pesan merah: *...harus bilangan bulat tanpa titik/koma.* |
 | 4 | Harga `0` | Pesan merah: *...harus lebih besar dari 0.* |
+
+**Skenario 1 — transaksi benar (pesan hijau):**
+
+![Transaksi berhasil disimpan](images/03_transaksi_berhasil.png)
+
+*Gambar 3. Harga 15000 × jumlah 2 → tersimpan sebagai transaksi nomor 1, total Rp30.000.*
+
+**Skenario 2 — harga dikosongkan (pesan merah):**
+
+![Error saat harga kosong](images/04_error_kosong.png)
+
+*Gambar 4. Kolom harga kosong → ditolak: "Harga dan jumlah wajib diisi."*
+
+**Skenario 3 — jumlah diisi huruf (pesan merah):**
+
+![Error saat jumlah berisi huruf](images/05_error_huruf.png)
+
+*Gambar 5. Jumlah "dua" bukan bilangan bulat → ditolak.*
+
+**Skenario 4 — harga nol (pesan merah):**
+
+![Error saat harga nol](images/06_error_nol.png)
+
+*Gambar 6. Harga 0 → ditolak: "Harga dan jumlah harus lebih besar dari 0."*
 
 > Setiap kali transaksi benar disimpan, nomor transaksi bertambah. Bila nomor transaksimu bukan 1, itu wajar karena database menyimpan semua percobaanmu.
 
@@ -883,3 +901,14 @@ Berkas pendukung yang kamu buat di modul ini:
 | `uji_database.py` | Membuktikan database menolak harga/jumlah/total/produk yang salah |
 | `uji_relasi.py` | Membuktikan foreign key bekerja (dan apa yang terjadi bila tidak aktif) |
 | `lihat_data.py` | Menampilkan transaksi beserta nama produk lewat `JOIN` |
+
+Gambar yang dipakai pada modul ini ada di folder `images/`:
+
+| Berkas | Isi |
+|---|---|
+| `01_tampilan_awal.png` | Tampilan awal aplikasi |
+| `02_pilihan_produk.png` | Dropdown katalog produk |
+| `03_transaksi_berhasil.png` | Transaksi valid tersimpan |
+| `04_error_kosong.png` | Penolakan: harga kosong |
+| `05_error_huruf.png` | Penolakan: jumlah berisi huruf |
+| `06_error_nol.png` | Penolakan: harga nol |
